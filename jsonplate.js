@@ -1,5 +1,7 @@
 /*
  *	jsonplate.js
+ *	Mootools class to output a JSON template as html
+ *	This was designed to be used in a server-side environemt with mootools
  *	
  *	@description: Mootools class to create (x)html from a JSON object in the jsonplate syntax
  *	@author: Adam Fisher (adamnfish)
@@ -7,6 +9,7 @@
  *	@licence: MIT-Style
  *	@website: http://www.adamnfish.com/projects/jsonplate/
  *	@github: http://github.com/adamnfish/jsonplate/tree
+ *	@requires: Mootools 1.2.3+
  */
 
 /*
