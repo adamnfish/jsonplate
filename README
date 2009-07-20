@@ -1,1 +1,52 @@
 jsonplate README
+
+ *	@description: Mootools class to create (x)html from a JSON object in the jsonplate syntax
+ *	@author: Adam Fisher (adamnfish)
+ *	@version: 0.1 (alpha)
+ *	@licence: MIT-Style
+ *	@website: http://www.adamnfish.com/projects/jsonplate/
+ *	@github: http://github.com/adamnfish/jsonplate/tree
+ *	@requires: Mootools 1.2.3+
+
+-- Usage --
+
+Include jsonplate.js in your application.
+To create a new intance of Jsonplate, do the following:
+
+var template = new Jsonplate();
+
+Jsonplate needs to be provided with the JSON structure to convert. This can be done in the constructor, or by setting the JSON using the setJSON method:
+
+var json = [...]; // JSON template
+var template = new Jsonplate(json);
+
+// or
+var template = new Jsonplate();
+template.setJSON(json);
+
+To add variables into the template, simply add them directly to the JSON structure and evaluate them as late as possible. For example:
+
+var json = function(div_class, div_text){
+	return [
+		{"div": {
+			"class": div_class,
+			"childnodes": [
+				{text: div_text}
+			]
+		}}
+	];
+};
+
+var template = new Jsonplate(json());
+
+To output the resulting (x)html, call Jsonplate's output method.
+
+template.output();
+
+The output method has two optional arguments, 'silent' and 'pretty', which default to false and true respectively (this may change).
+Passing true as silent will prevent the output method from printing the template directly (this is likely to become the default)
+the pretty paramater determines whether the output should be formatted nicely, with newlines and indentation.
+This makes the resulting mark-up much easier to read and is highly recommended for debugging and development.
+
+-- --
+If you find Jsonplate useful, or wish to donate please contact me!
