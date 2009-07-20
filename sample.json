@@ -1,0 +1,524 @@
+function testTemplate(){
+	vat_rate = 0.15;
+	return [
+		{"p": {
+			childnodes: [
+				{text: "test text2"}
+			]
+		}},	
+		{"form": {
+			name: "form_name",
+			action: "?step=3",
+			method: "post",
+			childnodes: [
+				{h2: {
+					childnodes: [
+						{text: "Please enter your booking details"}
+					]
+				}},
+				{p: {
+					childnodes: [
+						{text: "* indicates mandatory fields"}
+					]
+				}},
+				{div: {
+					'class':'details_address',
+					childnodes: [
+						{fieldset: {
+							'class':'details',
+							childnodes: [
+								{legend: {
+									childnodes: [
+										{text: "Your Details"}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "priority",
+											childnodes: [
+												{text: "Priority Code"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "priority",
+											value: "high",
+											id: "priority"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "title",
+											childnodes: [
+												{text: "Title *"}
+											]
+										}},
+										{select: {
+											name: "title",
+											'class': "title",
+											childnodes: [
+												{option: {
+													value:'',
+													selected: '', 
+													childnodes: [
+														{text: "select a title"}
+													]
+												}},
+												{option: {
+													value:"mr",
+													selected: step1.optionSelected('title','mr'),
+													childnodes: [
+														{text: "Mr"}
+													],
+
+												}},
+												{option: {
+													value:"miss",
+													selected: step1.optionSelected('title','miss'),
+													childnodes: [
+														{text: "Miss"}
+													]
+												}},
+												{option: {
+													value:"mrs",
+													selected: step1.optionSelected('title','mrs'),
+													childnodes: [
+														{text: "Mrs"}
+													]
+												}},
+												{option: {
+													value:"ms",
+													selected: step1.optionSelected('title','ms'),
+													childnodes: [
+														{text: "Ms"}
+													]
+												}},
+												{option: {
+													value:"dr",
+													selected: step1.optionSelected('title','dr'),
+													childnodes: [
+														{text: "Dr"}
+													]
+												}},
+											]
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "firstname",
+											childnodes: [
+												{text: "First Name *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "firstname",
+											value: "Adam",
+											id: "firstname"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "surname",
+											childnodes: [
+												{text: "Surname *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "surname",
+											value: "Fisher",
+											id: "surname"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "department",
+											childnodes: [
+												{text: "Department *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "department",
+											value: "Department",
+											id: "department"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "email",
+											childnodes: [
+												{text: "Email *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "email",
+											value: "test@example.com",
+											id: "email"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "confirmemail",
+											childnodes: [
+												{text: "Confirm email address *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "confirmemail",
+											value: "test@example.com",
+											id: "confirmemail"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "telephone",
+											childnodes: [
+												{text: "Telephone Number *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "telephone",
+											value: "0123456789",
+											id: "telephone"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "jobtitle",
+											childnodes: [
+												{text: "Job title *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "jobtitle",
+											value: "Job title",
+											id: "jobtitle"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "companyname",
+											childnodes: [
+												{text: "Company Name *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "companyname",
+											value: "Example company",
+											id: "companyname"
+										}}
+									]
+								}}
+								
+							
+							]
+						}},
+						{fieldset: {
+							'class':'address',
+							childnodes: [
+								{legend: {
+									childnodes: [
+										{text: "Your Address"}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "houseno",
+											childnodes: [
+												{text: "House No / Name *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "houseno",
+											value: "45",
+											id: "houseno"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "address1",
+											childnodes: [
+												{text: "Addess 1 *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "address1",
+											value: "A Road",
+											id: "address1"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "address2",
+											childnodes: [
+												{text: "Addess 2"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "address2",
+											value: "Clapham",
+											id: "address2"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "address3",
+											childnodes: [
+												{text: "Addess 3"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "address3",
+											value: "",
+											id: "address3"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "address4",
+											childnodes: [
+												{text: "Addess 4"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "address4",
+											value: "",
+											id: "address4"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "towncity",
+											childnodes: [
+												{text: "Town / City *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "address4",
+											value: "London",
+											id: "towncity"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "county",
+											childnodes: [
+												{text: "County"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "county",
+											value: "",
+											id: "county"
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "postcode",
+											childnodes: [
+												{text: "Postcode *"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "postcode",
+											value: "SW4 8HR",
+											id: "postcode"
+										}}
+									]
+								}},
+									{div: {
+										"class": "field",
+										childnodes: [
+											{label: {
+												"for": "country",
+												childnodes: [
+													{text: "Country"}
+												]
+											}},
+											{select: {
+												name: "country",
+												'class': "country",
+												childnodes: [
+													{option: {
+														value: "",
+														childnodes: [
+															{text: "Please select..."}
+														]
+													}},
+													{option: {
+														value: "1",
+														childnodes: [
+															{text: "1"}
+														]
+													}}
+												]
+											}}
+										]
+									}}
+							]
+						}},
+						{fieldset: {
+							'class':'discount',
+							childnodes: [
+								{legend: {
+									childnodes: [
+										{text: "Discount"}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{label: {
+											"for": "discount",
+											childnodes: [
+												{text: "Discount codes"}
+											]
+										}},
+										{input: {
+											type: "text",
+											name: "discount",
+											value: "&pound;" + (560 * (1 + vat_rate)),
+											id: "discount"
+										}}
+									]
+								}}
+							]
+						}}
+					]
+				}},
+				{div: {
+					'class':'delegate',
+					childnodes: [
+						{fieldset: {
+							childnodes: [
+								{legend: {
+									childnodes: [
+										{text: "Delegate sector"}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{input: {
+											type: "radio",
+											name: "sector",
+											value: 'public',
+											id: "sector_public"
+										}},
+										{label: {
+											"for": "sector_public",
+											childnodes: [
+												{text: "Public"}
+											]
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{input: {
+											type: "radio",
+											name: "sector",
+											value: 'private',
+											id: "sector_private"
+										}},
+										{label: {
+											"for": "sector_private",
+											childnodes: [
+												{text: "Private"}
+											]
+										}}
+									]
+								}},
+								{div: {
+									"class": "field",
+									childnodes: [
+										{input: {
+											type: "radio",
+											name: "sector",
+											value: 'voluntary',
+											id: "sector_voluntary"
+										}},
+										{label: {
+											"for": "sector_voluntary",
+											childnodes: [
+												{text: "Voluntary"}
+											]
+										}}
+									]
+								}}
+							]
+						}}
+					]
+				}}
+			]
+		}}
+	];
+}
