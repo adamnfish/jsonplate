@@ -15,14 +15,16 @@
 /*
  *	String method for robust repetition - used for formatted output of the markup
  */
-String.prototype.repeat = function(times){
-	var str = "";
-	times = $pick(times, 2);
-	for(var i = 0; i < times; i++){
-		str += this;
+String.implement({
+	repeat: function(times){
+		var str = "";
+		times = $pick(times, 2);
+		for(var i = 0; i < times; i++){
+			str += this;
+		}
+		return str;
 	}
-	return str;
-};
+});
 
 var Jsonplate = new Class({
 	json: {},
@@ -30,8 +32,6 @@ var Jsonplate = new Class({
 	contentArr: [],
 	generated: false,
 	level: 0,
-	checkboxPrefixHack: false,
-	checkboxPrefixHackCache: $H({}),
 	
 	emptyTags: ['br', 'img', 'input', 'hr', 'link', 'meta'],
 	textOnlyTags: ['text', 'html', 'textnode'],
@@ -73,31 +73,12 @@ var Jsonplate = new Class({
 		this.printChildnodes(this.json, pretty);
 		
 		this.content = this.contentArr.join("");
-		this.checkboxPrefixHackCache.empty();
 		
 		this.generated = true;
 	},
 	
 	printTag: function(node, tagname, firstChild, lastChild, pretty){
 		this.level++;
-		
-		// do the checkbox hack here
-		if(this.checkboxPrefixHack && "input" === tagname && "checkbox" === node.type){
-			// if we have a checkbox input and the setting is enabled for this class instance
-			var name = node.name;
-			if(!this.checkboxPrefixHackCache.get(name)){
-				this.level--;
-				this.printTag({
-					type: "hidden",
-					value: "",
-					name: name,
-					"class": "checkbox-ignore"
-				}, "input", firstChild, lastChild, pretty);
-				firstChild = false;
-				this.checkboxPrefixHackCache.set(name, true);
-				this.level++;
-			}
-		}
 		
 		if("null" === tagname){
 			// do nothing for a null node
