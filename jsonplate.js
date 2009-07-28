@@ -64,7 +64,7 @@ var Jsonplate = new Class({
 	
 	setJSON: function(json){
 		this.generated = false;
-		this.json = json;
+		this.json = $splat(json);
 	},
 	
 	// internal methods
